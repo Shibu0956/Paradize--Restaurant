@@ -1,0 +1,45 @@
+/* orders */
+
+.orderdiv{
+    
+    color: #000;
+}
+
+.orderdiv1{
+    background-color: antiquewhite;
+    margin: auto;
+    width: 50%;
+    /* border: 1px solid white; */
+}
+.orderdiv2{
+    margin: auto;
+    width: 50%;
+    background-color: antiquewhite;
+    /* border: 1px solid white; */
+}
+.orderdiv h4,h3,span{
+    font-family: 'Times New Roman', Times, serif;
+}
+#col3{
+    border-radius: 25px;
+
+}
+#col6order{
+    font-family: 'Times New Roman', Times, serif;
+}
+#hrr{
+    color: red;
+    width: 455px;
+    
+}
+/* hr { 
+    border: 0; 
+    border-top: 1px solid #00f915; 
+    margin: 1em 0; 
+  }  */
+.aa input{
+    width: 25px;
+}
+.input-group ::placeholder{
+   color: #f9f9f9;
+  }

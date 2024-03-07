@@ -1,9 +1,14 @@
 .paradize{
     color: black;
     font-family: 'Times New Roman', Times, serif;
-    padding-left: 20px;
+    padding-left: 10px;
+    margin-top: auto;
+    margin-bottom: -5px;
     
     
+}
+.mylogo{
+    margin-bottom: -30px;
 }
 
 .secondbar{
@@ -91,6 +96,80 @@
 .login a:hover{
     text-decoration: underline;
     color: blue;
+}
+.mycarousel1{
+    width: 100%;
+    height: 430px; 
+    margin: auto;
+    background-color: #ff7200;
+}
+.mycarousel1 #navimg1{
+    margin-top: 90px;
+    /* margin: auto; */
+    /* margin-top: 50px;
+    padding-bottom: 25px;
+    border-radius: 100px; */
+
+}
+.mycarousel1 #navimg1 .rc{
+    box-shadow: 2px 2px white;
+}
+.mycarousel1 h2,h3{
+    
+    padding-top: 10px;
+    color: #f9f9f9;
+    text-shadow: 1px #000000;
+    
+}
+.mycarousel1 h2{ 
+    margin-top: 90px;
+      font-size: 50px;
+}
+.mycarousel1 h3{
+    margin-top: -25px;
+    
+    
+}
+#btnbt{
+
+    border-radius: 25px;
+    width: 200px;
+}
+#btnbt:hover{
+    background-color: #ffff09;
+    color: rgb(7, 7, 7);
+}
+#navimg2{
+    margin-left: 150px;
+    border-radius: 1px solid white;
+}
+
+/* container-2 */
+
+/* .cont2{
+    width: 100%;
+    margin: 3.125rem auto 0 auto;
+   
+} */
+.row1row{
+    width: 100%;
+    margin: auto;
+    /* margin-left: 150px; */
+    /* padding-left: 300px; */
+    align-items:center;
+    align-content: center;
+}
+.col3{
+    background: linear-gradient(rgba(0,0,0,0.9)50%,rgba(0,0,0,0.9)50%),url(image1.jpg);
+    margin: auto;
+    max-width: fit-content;
+    color: #f9f9f9;
+}
+.col3 img{
+    margin-top: 2px;
+    z-index: -1;
+   color: #f9f9f9;
+    
 }
 .card{
     box-shadow: 6px 8px 8px black;
