@@ -1,0 +1,47 @@
+{% extends "masterfile.html" %}
+{% load static %}
+
+{% block body %}
+
+<div class="container aboutcontainer" style="background-color: rgb(235, 240, 249);">
+
+        <div class="row">
+            <center><h3 id="abouth3">About Us</h3><br></center>
+
+            <div class="col-lg-7">
+                <h5 id="abouth5">Paradize</h5>
+                <p id="aboutp"><span id="qid">"P</span>aradize was established on <em>1978 October 6</em> in Thailand. Ducimus, laborum labore suscipit cupiditate
+                    a reprehenderit facilis repellat corporis consequuntur inventore. Reiciendis a aspernatur asperiores velit,
+                     omnis perferendis, odit maiores tenetur sint dicta deleniti necessitatibus qui? Corrupti, recusandae saepe
+                      dolore assumenda quo quos ipsam commodi repellendus animi? Adipisci provident accusamus doloremque quia quibusdam
+                       quisquam temporibus dolor voluptates sapiente, doloribus voluptas similique facere minus ad consectetur dolore rerum
+                        laboriosam? Facilis quibusdam veritatis perspiciatis, odit suscipit earum autem ut aliquam. Distinctio tenetur veritatis
+                         neque necessitatibus similique quaerat quas error quia velit, nemo rem, animi earum vero iste, aliquid praesentium. Doloribus
+                          vero quidem id optio? Vero, natus sequi est omnis repellat rerum fugiat iusto suscipit non autem veritatis obcaecati. Tempora
+                           recusandae dignissimos ex. Iusto ad rem ipsam aliquam minima laudantium reiciendis at ab, hic itaque quaerat, aspernatur quasi
+                            facere doloremque animi nobis accusamus, deleniti explicabo similique tempora tenetur? Porro itaque velit qui deleniti aliquam 
+                            voluptas dolorum! Reprehenderit itaque ipsa voluptatem voluptatibus unde inventore enim excepturi nesciunt provident aspernatur
+                             necessitatibus reiciendis, optio quibusdam nihil aliquid iust<span id="qid">"</span></p>
+           
+           
+            </div>
+            <div class="col-lg-5">
+                <div class="row">
+                    {% for x in about %}
+                    <div class="col-lg-6 col-sm-6">
+                        <br>
+                    <img class="aboutimage" src="{{x.Image.url}}" alt="img" width="200px" height="200px">
+                    <br>
+                    </div>
+                    {% endfor %}
+                 </div>
+            </div>
+        </div>
+        {% comment %} <div class="div2">
+        </div> {% endcomment %}
+        <br><br>
+                    
+                     
+    </center>
+</div><br><br>
+{% endblock body %}

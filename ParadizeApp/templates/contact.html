@@ -1,0 +1,49 @@
+{% extends "masterfile.html" %}
+{% load static %}
+
+{% block body %}
+
+<!-- Contact Section Start -->
+<div class="conatiner" id="contactsection">
+    <center><h6 id="texthead">CONTACT</h6>
+    <h3 style="font-family:cursive; color: rgb(246, 68, 104);">Need Helps?<span>Conatct US</span></h3><br><br>
+    <div class="row conatctrow1">
+      <div class="col-lg-5 ms-5 p-1" id="conatctcol">
+        <img src="{% static 'images/map1.png' %}" alt="img" width="50px" style="margin-right: 250px;">
+        <h6>Our Address</h6>
+        <span class="spaddress">Shop No:15A,street 331 Thampanoor,Kerala</span>
+      </div><br>
+      <div class="col-lg-5 ms-5 p-1" id="conatctcol">
+        <img src="{% static 'images/message.png' %}" alt="img" width="50px" style="margin-right: 250px;">
+
+        <h6>Email Us</h6>
+        <span class="spemail">ParadizeTVM@gmail.com</span>
+      </div>
+    </div><br>
+    <div class="row conatctrow2">
+      <div class="col-lg-5 ms-5 p-1" id="conatctcol">
+        <img src="{% static 'images/phone-call.png' %}" alt="img" width="50px" style="margin-right: 250px;">
+
+        <h6>Call Us</h6>
+        <span class="spcall">0471-2265689 ,+91-8136803602</span>
+      </div><br>
+      <div class="col-lg-5 ms-5 p-1" id="conatctcol">
+        <img src="{% static 'images/wall-clock.png' %}" alt="img" width="50px" style="margin-right: 250px;">
+
+        <h6>Opening Hours</h6>
+        <span class="sphours">Sun - Sat 8.00am to 12.00am</span>
+      </div>
+    </div>
+    <div class="row">
+      <div class="col-lg-12">
+        <img src="{% static 'images/delivery.png' %}" alt="img" width="300px">
+        <input type="button" class="btn btntrack" value="Track your Order">
+
+        <img src="{% static 'images/location.png' %}" alt="img" width="40px">
+
+      </div>
+    </div>
+  </center>
+  </div>
+  <br><br><br><br>
+{% endblock body %}

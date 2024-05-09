@@ -1,0 +1,71 @@
+{% extends "masterfile.html" %}
+
+{% load static %}
+
+{% block body %}
+{% csrf_token %}
+<div class="menubody">
+
+<!-- === Menu Section Start === -->
+<div class="container menucontainer" >
+  <center><h6 style="color: rgb(0, 0, 0);">Our Menu</h6>
+    <h2 style="font-family:cursive; color: rgb(253, 38, 81);">Taste with Our  <span style="font-family:cursive; color: rgb(252, 126, 8);">Paradize</span> </h2><br>
+    <center>
+
+      <ul class="product-list">
+        {% for menu in menu %}
+          <li class="product-item">
+            <img src="{{ menu.Image.url }}" alt="{{ menu.name }}" width="200" height="150">
+            <p id="namep">{{ menu.Name }}</p>
+            <p>{{ menu.Description }}</p>
+            <p>Price: ${{ menu.Price }}</p>
+            <a href="#" class="buy-now-button">Order Now</a>
+            <a class="buy-now-button" href="{% url 'add_to_cart' menu.id %}">Add to Cart</a>
+    
+          </li>
+        {% endfor %}
+      </ul>
+    {% comment %} <div class="row">
+    {% for x in menu  %}
+    <div class="col-lg-4 col-md-6">
+      <a href="" style="text-decoration: none;">
+        <div class="card  menucard" style="width: 16.5rem;">
+          <div class="menuimage">
+             <img src={{x.Image.url}} alt="img" width="260px" height="150px" >
+             <div class="top-left">Off 30%</div> 
+             <div class="bottom-right">25-30 mins</div> 
+
+          </div>
+          <div class="card-title menutitle">
+            <div class="row">
+              <div class="col-8">
+                <h6 id="menutext1">{{x.Description}}</h6>         
+                <p>Breakfast,Tasty Hot</p>    
+              </div>
+              <div class="col-4 menucontent">
+                <span>4.6</span>&nbsp;<span><img src="{% static 'images/star.png' %}" alt="img" width="16px"></span>
+                <p style="color: rgb(27, 247, 56); line-height: 15px;" >Free Delivery</p>
+
+              </div>
+            </div>
+                             
+        </div>
+        <br>
+        <br>
+        <center><button id="orderbutton"><a href="/ordermenu/{{x.id}}">Order Now</a></button></center><br><br></a>
+        <br>
+      </div>
+    </div>
+    
+    {% endfor %}  
+    
+  </div> {% endcomment %}
+</div>
+</div>
+</div>
+
+
+
+<!-- === Menu Section End === -->
+</div>
+{% endblock body %}

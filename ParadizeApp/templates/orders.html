@@ -1,0 +1,83 @@
+{% extends "masterfile.html" %}
+
+{% load static %}
+{% block body %}
+
+<div class="container">
+    <center><div class="row justify-content-center" id="OrderRow">
+        <div class="col-lg-8">
+            <input type="Search" id="searcho" placeholder="search your order here..">
+            <button id="searchbtn">Search</button>
+        </div>      
+    </div>
+    </center>
+<br>
+    <div class="row justify-content-center" id="OrderRow1">
+        <div class="col-lg-4">
+            <center><img id="orderimg1" src="{% static 'images/lunch1.jpg' %}"  alt="img" width="100px" height="100" class="rounded-circle">
+            Egg Double Toasted</center>
+        </div>
+        <div class="col-lg-4" id="ordercol4"><center>Rs.160/-</center>
+        </div>
+        <div class="col-lg-4" id="ordercol44"><center>Will Arrive in 10-15 minutes, April 29th,2024</center>
+            {% comment %} <div class="divstar">
+               <center> <span><img src="{% static 'images/star.png' %}" alt="img" width="16px"></span>
+                <span><img src="{% static 'images/star.png' %}" alt="img" width="16px"></span>
+                <span><img src="{% static 'images/star.png' %}" alt="img" width="16px"></span>
+                <span> <img src="{% static 'images/star.png' %}" alt="img" width="16px"></span>
+                </div></center> {% endcomment %}
+        </div>
+        <div class="col-lg-2">
+            <button id="track">Track your order</button>
+        </div>
+    </div>
+    <br>
+    <div class="row justify-content-center" id="OrderRow1">
+        <div class="col-lg-4">
+            <center><img id="orderimg1" src="{% static 'images/lunch2.jpg' %}"  alt="img" width="100px" height="100" class="rounded-circle">
+            Egg Double Toasted</center>
+            
+        </div>
+        <div class="col-lg-4" id="ordercol4"><center>Rs.250/-</center>
+        </div>
+        <div class="col-lg-4" id="ordercol4"><center>Delivered on April 20th,2024</center>
+            <div class="divstar">
+                <center> <span><img src="{% static 'images/star.png' %}" alt="img" width="16px"></span>
+                    <span><img src="{% static 'images/star.png' %}" alt="img" width="16px"></span>
+                    <span><img src="{% static 'images/star.png' %}" alt="img" width="16px"></span>
+                    <span> <img src="{% static 'images/star.png' %}" alt="img" width="16px"></span>
+                    </div></center><span id="complete">Completed</span>
+        </div>
+        <div class="col-lg-2">
+            <button id="searchagain">Order Again</button> 
+
+        </div>
+
+    </div>
+    <br>
+    <div class="row justify-content-center" id="OrderRow1">
+        <div class="col-lg-4">
+           <center> <img id="orderimg1" src="{% static 'images/snacks1.jpg' %}"  alt="img" width="100px" height="100" class="rounded-circle">
+            Egg Double Toasted</center>
+        </div>
+        <div class="col-lg-4" id="ordercol4"><center>Rs.110/-</center>
+        </div>
+        <div class="col-lg-4" id="ordercol4"><center>Delivered on April 20th,2024</center>
+            <div class="divstar">
+                <center> <span><img src="{% static 'images/star.png' %}" alt="img" width="16px"></span>
+                    <span><img src="{% static 'images/star.png' %}" alt="img" width="16px"></span>
+                    <span><img src="{% static 'images/star.png' %}" alt="img" width="16px"></span>
+                    <span> <img src="{% static 'images/star.png' %}" alt="img" width="16px"></span>
+                    </div></center><span id="complete">Completed</span>
+        </div>
+        <div class="col-lg-2">
+        <button id="searchagain">Order Again</button>
+    </div>
+
+    </div>
+    
+</div>
+<br><br>
+{% endblock body %}
+
+

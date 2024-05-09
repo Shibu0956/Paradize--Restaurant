@@ -1,0 +1,58 @@
+
+{% extends "masterfile.html" %}
+{% load static %}
+
+     <!-- === Table Section Start === -->
+
+{% block body %}
+  <form action="" method="POST" class="post-form">
+    {% csrf_token %}
+
+     <div class="container booktablecont">
+       <center><h3 id="bookconfirm"> Booking Confirmation</h3>
+
+        <div class="card-body">
+          <table class="table table-bordered table-striped classtable">
+            <thead>
+              <tr>
+                <th>Name</th>
+                <th>Phone No</th>
+                <th>Email</th>
+              
+                <th>Person_nos</th>
+                <th>Date</th>
+                <th>Time</th>
+                <th>Message</th>
+
+              </tr>
+            </thead>
+        
+        <tbody>
+       
+          <tr>
+            <td>{{table.Name}}</td>
+            <td>{{table.Phone_No}}</td>
+            <td>{{table.Email}}</td>
+            <td>{{table.Person_nos}}</td>
+            <td>{{table.Date}}</td>
+            <td>{{table.Time}}</td> 
+            <td>{{table.Message}}</td>
+
+          </tr>
+        
+        </tbody>
+        <br><br>
+        </table>
+    </div><br>
+    <button type="submit" id="btn1table" value="Book a Table" class="btn-danger">Edit</button>
+    <button type="submit" id="btn1table" value="Book a Table" class="btn-danger">Continue</button>
+   <br><br>
+
+    </div>
+    </form>
+
+   {% endblock body %} 
+
+    <!-- === Table Section End === -->
+
+

@@ -17,16 +17,48 @@ Including another URLconf
 from django.contrib import admin
 from django.urls import path
 from ParadizeApp import views
+from django.conf import settings
+from django.conf.urls.static import static
+
+
 
 urlpatterns = [
     path('admin/', admin.site.urls),
     path('',views.homepage),
-    path('demosign/',views.demosign),
+    path('demohomepage/',views.demo_view),
     path('homepage/',views.homepage),
-    path('order/',views.order),
-    path('mymenu/',views.mymenu),
+    path('masterfile/',views.master_view),
     path('userlogin/',views.login),
     path('usersign/',views.sign),
     path('logout/',views.logout),
+    path('about/',views.About_View),
+    path('offers/',views.Offer_View),
+    path('contact/',views.Contact_View),
+    path('orders/',views.Order_View),
+    path('orderconfirm/',views.Order_confirm),
+    # --- table urls ---
+    path('mytable/',views.mytable),
+    path('bookingConfirm/<int:formid>',views.bookingConfirm,name="bookingConfirm"),
+    path('tabledit/<int:formid>',views.tabledit,name="tabledit"),
+    path('tableupdate/<int:formid>',views.tableupdate,name="tableupdate"),
+    path('TableBooked/<int:formid>',views.TableBooked_view,name="TableBooked_view"),
+
+
+    # --- table urls ---
+
+     # --- menu urls ---
+    path('menulist/',views.menu_list,name='menu_list'),
+    path('foodcart/', views.view_cart, name='view_cart'),
+    path('add/<int:product_id>/',views.add_to_cart,name='add_to_cart'),
+    path('remove/<int:item_id>/',views.remove_from_cart,name='remove_from_cart'),
+    # path('ordermenu/<int:id>',views.orderMenu,name="orderMenu"),
+
+    # --- table urls ---
+
+     path('myorder/',views.order),
+
+   
 
 ]
+urlpatterns = urlpatterns + static(settings.MEDIA_URL, document_root = settings.MEDIA_ROOT)
+

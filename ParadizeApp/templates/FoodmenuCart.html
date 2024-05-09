@@ -1,0 +1,50 @@
+{% extends "masterfile.html" %}
+{% load static %}
+
+{% block body %}
+<form method="POST" action="">
+  {% csrf_token %}
+<div class="conatiner">
+  <center><h2 id="menuconfirm">Order Confirmation</h2>
+  </center>
+  {% comment %} <div class="card-body">
+    <table class="table table-bordered table-striped classtable">
+      <thead class="menuhead">
+        <tr>
+          <th id="thitems">DESCRIPTION</th>
+          <th >QTY</th>
+          <th >PRICE</th>
+          <th >TOTAL_AMOUNT</th>
+
+        </tr>
+      </thead> 
+
+      <tbody class="menuhead"> {% endcomment %}
+        
+      <div class="product-list">
+        {% for item in cart_items %}
+        <div class="product-item">
+          <img src="{{ item.product.Image.url }}" alt="{{ item.product.Name }}" width="200" height="150">
+      
+          <p>{{ item.product.Name }}</p>
+          <p>Qty:   {{ item.quantity }}</p>
+          <p>Price: ${{ item.product.Price }}</p>
+          <button><a href="{% url 'remove_from_cart' item.id %}">Remove</a></button>
+        </div>
+        {% empty %}
+        <p>Your cart is empty.</p>
+        {% endfor %}
+      
+        </div>
+      
+        <center><span>Total Price: ${{ total_price }}</span><br>
+      
+        <a class="buy-now-button-add" href="{% url 'menu_list' %}">Add Items</a><br>
+      </center>
+      </div> 
+    </tr>
+  </tbody>
+ 
+</table>
+</form>
+{% endblock body %}

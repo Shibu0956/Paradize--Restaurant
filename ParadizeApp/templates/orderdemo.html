@@ -1,0 +1,55 @@
+{% extends "masterfile.html" %}
+
+{% load static %}
+
+{% block body %}
+<div class="menubody" style="background-color: rgb(0, 0, 0);">
+
+<!-- === Menu Section Start === -->
+<form method="POST" class="post-form" action="">
+    {% csrf_token %}
+<div class="container menucontainer" >
+  <center><h6 style="color: rgb(251, 250, 250);">Our Menu</h6>
+    <h2 style="font-family:cursive; color: rgb(253, 38, 81);">Taste with Our  <span style="font-family:cursive; color: rgb(252, 126, 8);">Paradize</span> </h2><br>
+    <center>
+    <div class="row">
+    {% for x in menu  %}
+    <div class="col-lg-4 col-md-6">
+      <a href="/orderdemomenu" style="text-decoration: none;">
+        <div class="card  menucard" style="width: 16.5rem;">
+          <div class="menuimage">
+             <img src={{x.Description.url}} alt="img" width="260px" height="150px" >
+             <div class="top-left">Off 30%</div> 
+             <div class="bottom-right">25-30 mins</div> 
+
+          </div>
+          <div class="card-title menutitle">
+            <div class="row">
+              <div class="col-8">
+                <h6 id="menutext1">{{x.Name}}</h6>         
+                <p>Breakfast,Tasty Hot</p>    
+                 <p style="color: rgb(27, 247, 56); line-height: 1px;" >Free Delivery</p>
+              </div>
+              <div class="col-4 menucontent">
+               
+                <span>4.6</span>&nbsp;<span><img src="{% static 'images/star.png' %}" alt="img" width="16px"></span>
+              </div>
+            </div>
+        </div>
+        <br><br><br><br>
+      </div></a>
+      <button><a href="/orderdemomenu/{{x.id}}"></a>Order</button>                
+
+    </div>
+    {% endfor %}  
+    
+  </div>
+</div>
+</div>
+</div>
+
+
+
+<!-- === Menu Section End === -->
+</div>
+{% endblock body %}

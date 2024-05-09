@@ -1,11 +1,9 @@
 #bgsign{
     margin: auto;
-    /* margin-top: 10px; */
-    /* background-color: #b3baff; */
+    background: linear-gradient(to right,rgb(247, 104, 176),rgb(243, 243, 136),rgb(245, 118, 209));
     font-family: "Open Sans", sans-serif;
     font-size: 12px;
-    color: rgb(184, 90, 255);
-    /* text-shadow: 1px 2px rgb(5, 5, 5); */
+    color: rgb(250, 250, 250);
     display: flex;
     justify-content: center;
     align-items: center;
@@ -14,19 +12,27 @@
 }
 
 .login {
-    margin-top: -10px ;
+    margin-top: 10px ;
     margin: auto;
-    width: 120%;
-    background-color: #040404;
-    box-shadow: 0 2px 11px #dd04ff;
+    width: 400px;
+    color: #eeeeee;
+    /* background: linear-gradient(to top, rgba(27, 27, 27, 0.9)50%,rgba(27, 27, 27, 0.9)50%) url("{% static 'images/pizza.jpg' %}"); */
+    box-shadow: 0 2px 11px #f81574;
     display: flex;
     flex-direction: column;
     align-items: center;
     border-radius: 10px;
   }
+.login img{
+  width: 200px;
+
+  }
+.login h1,p{
+  color: white;
+}
   
   .login .title {
-    
+    color: white;
     text-align: center;
     text-transform: uppercase;
     font-size: 1.7em;
@@ -54,6 +60,9 @@
     margin-bottom: 15px;
     background-color: #9d9191;
     border-radius: 5px;
+    border: 0.5px solid black;
+    
+
     
   }
   
@@ -65,17 +74,29 @@
     line-height: 22px;
     background-color: #e0e0e5;
   }
-  #btnbt{
-    margin: auto;
+  
+  .btnsign{
+    background-color: #3377f4;
+    border-radius: 15px;
+    color: white;
     width: 50%;
+    margin: auto;
+    padding: 3px;
     
+    border: 1px solid white;
   }
-  .gosign{
+  .btnsign:hover{
+    background-color: blue ;
+  }
+  .signp{
     font-size: 13px;
   }
-  .gosign a{
+  .signp a{
     text-decoration: none;
-    color: #4b4bfb;
+    color: rgb(230, 255, 6) ;
+  }
+  .signp a:hover{
+    color: #3377f4;
   }
   
   /* .login .remember {

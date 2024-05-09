@@ -1,0 +1,51 @@
+{% extends "masterfile.html" %}
+{% load static %}
+
+{% block body %}
+
+<div class="conatiner">
+  <center><h2 id="menuconfirm">Order Confirmation</h2>
+  </center>
+  <div class="card-body">
+    <table class="table table-bordered table-striped classtable">
+      <thead class="menuhead">
+        <tr>
+          <th id="thitems" >DESCRIPTION</th>
+          <th >NAME</th>
+          <th >QTY</th>
+          <th >PRICE</th>
+          <th >TOTAL_AMOUNT</th>
+
+        </tr>
+      </thead>
+  
+  <tbody class="menuhead">
+ {% comment %} {% for x in menu %}   {% endcomment %}
+    <tr>
+      <td><img src={{menu.Description.url}} alt="img" width="100px" height="100px" class="rounded-circle" ></td>
+      <td>{{menu.Name}}</td>
+      <td>{{menu.Qty}}</td>
+      <td>{{menu.Price}}</td>
+      <td>{{menu.Total_Amount}}</td>
+      
+
+    </tr>
+ {% comment %} {% endfor %}  {% endcomment %}
+  </tbody>
+  
+  <br><br>
+  </table>
+</div>
+<center><button type="submit" id="btn1table" value="Add item" class="btn-danger">Add item</button>
+  <button type="submit" id="btn1table" value="Continue" class="btn-danger">Continue</button></center><br><br>
+
+<!-- <div class="menudetails">
+  <p>Subtotal :</p>
+  <p>Delivery Charge :</p>
+  <p>Estimated Tax :</p>
+  <strong><p>Order Total :</p></strong>
+</div> -->
+</div>
+
+
+{% endblock body %}

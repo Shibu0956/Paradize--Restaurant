@@ -1,0 +1,46 @@
+{% extends "masterfile.html" %}
+{% load static %}
+{% block body %}
+
+<center><h2 style="font-family:cursive; color: rgb(253, 38, 81);">Paradize  <span style="font-family:cursive; color: rgb(252, 126, 8);">Offers</span> </h2></center><br>
+<div class="container">
+    <div class="row">
+        {% for x in offer %}
+        <div class="col-lg-4">
+          <a href="/mymenu " style="text-decoration: none;">
+            <div class="card " style="width: 300px; height: 220px;" id="offercard">
+                 <img src={{x.Image.url}} alt="img" width="170px" height="170px" class="rounded-circle" >
+                 <div class="top-left" id="topleft">Starburgs</div>    
+                 <div id="middlestar">50% Off</div>
+                 <button id="checkmenubtn">Check Menu</button>   
+            <br><br>
+          </div></a>
+        </div>
+        {% endfor %}  
+        <div class="col-lg-4">
+          <a href="/mymenu " style="text-decoration: none;">
+            <div class="card " style="width: 300px; height: 220px;" id="offercard1">
+                 <img src="{% static 'images/snacks33.png' %}" alt="img" width="150px" height="150px"  >
+                 <div class="top-left" id="topleft">Amul-Icecream</div>
+                 <div id="middlestar">20% Off
+                 <div class="offerspan">
+                 <span >140/-</span><span id="myspan">190/-</span> 
+                </div>    </div>
+                 <button id="checkmenubtn">Check Menu</button>   
+            <br><br>
+          </div></a>
+        </div>
+        <div class="col-lg-4">
+          <a href="/mymenu " style="text-decoration: none;">
+            <div class="card " style="width: 300px; height: 220px;" id="offercard2">
+                 <img src="{% static 'images/snacks2.jpg' %}" alt="img" width="150px" height="150px" class="rounded-circle" >
+                 <div class="top-left" id="topleft">Yummy</div>    
+                 <div id="middlestar">40% Off</div>
+                 <button id="checkmenubtn">Check Menu</button>   
+            <br><br>
+          </div></a>
+        </div>
+        
+      </div><br><br>
+</div>
+{% endblock body %}

@@ -1,18 +1,19 @@
-#bglogin{
+.pardizebody{
     margin: auto;
     background-color: #f8f8f8;
     font-family: "Open Sans", sans-serif;
     font-size: 12px;
-    color: rgb(173, 95, 245);
+    color: rgb(34, 0, 255);
     display: flex;
     justify-content: center;
     align-items: center;
     padding: 50px;
+    
   
 }
 
-.login {
-    /* width: 200%; */
+.pardizelogin {
+    width: 400px;
     background-color: #000000;
     box-shadow: 0 2px 11px #f300ef;
     display: flex;
@@ -21,20 +22,23 @@
     border-radius: 10px;
   }
   
-  .login .title {
+  .pardizelogin .title {
     text-align: center;
     text-transform: uppercase;
+    font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
     font-size: 1.7em;
-    line-height: 30px;
+    margin-top: 10px;
     margin-top: 1em;
+    color: rgb(43, 15, 255);
+    /* text-shadow:5px 3px 8px #08b9ff; */
   }
   
-  .login .intro {
+  .pardizelogin .intro {
     text-align: center;
     margin: 15px 0 15px 0;
   }
   
-  .login .myform {
+  .pardizelogin .pardizeform {
     display: flex;
     flex-direction: column;
     align-items: space-between;
@@ -44,21 +48,21 @@
     /* padding: 0 10px; */
   }
   
-  .login .myform .input-group {
+  .pardizelogin .pardizeform .input-group {
     margin-bottom: 15px;
     background-color: #ffffff;
     border-radius: 5px;
   }
   
-  .login .myform .input-group .form-control {
+  .pardizelogin .pardizeform .input-group .form-control {
     border-right: none;
   }
   
-  .login .myform .input-group .input-group-text {
+  .pardizelogin .pardizeform .input-group .input-group-text {
     line-height: 22px;
     background-color: #f1f1f1;
   }
-  .btn1{
+  /* .btn1{
     border-radius: 5px;
     height: 30px;
   }
@@ -66,11 +70,15 @@
     margin: auto;
     width: 35%;
     
-  }
-  .gosign{
+  } */
+  #paradizebtn{
+    width: 95px;
     font-size: 13px;
+    background-color: #2b28fc;
+    color: white;
   }
-  .gosign a{
+  #paradizebtn:hover{
     text-decoration: none;
-    color: #4b4bfb;
+    color: #e7e7eb;
+    background-color: #605dff;
   }

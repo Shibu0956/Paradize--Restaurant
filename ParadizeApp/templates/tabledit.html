@@ -1,0 +1,58 @@
+{% extends "masterfile.html" %}
+{% load static %}
+{% block body  %}
+
+  <form  method="POST" class="post-form" action="">
+    {% csrf_token %}
+     <div class="container">
+       <center>
+        <div class="card-body">
+            <table class="table table-bordered table-striped classtable">
+                <center>Click and edit your information</center>
+
+              <thead>
+                <tr>
+                  <th>Name:</th>
+                  <th>Phone No:</th>
+                  <th>Email</th>
+                
+                  <th>Person_nos</th>
+                  <th>Date</th>
+                  <th>Time</th>
+                  <th>Message</th>
+  
+                </tr>
+              </thead>
+          
+          <tbody>
+           
+            <tr>
+              <td><input type="text" class="form-control" name="Name"  value="{{ table.Name }}" required></td>
+
+            <td><input type="tel" class="form-control" name="Phone_No"  value="{{ table.Phone_No }}" required></td>
+            <td><input type="email" class="form-control" name="Email"    value="{{ table.Email }}" required></td>
+            <td><input type="number" class="form-control" name="Person_nos"  value="{{ table.Person_nos }}" required></td>
+            <td><input type="date" class="form-control" name="Date"  value="{{ table.Date}}" required></td>
+            <td><input type="time" class="form-control" name="Time"  value="{{ table.Time }}" required></td>
+            <td><input type="textarea" class="form-control" name="Message"   value="{{ table.Message }} " required></td>
+  
+            </tr>
+          </tbody>
+          <br><br>
+          </table>
+          
+          {% for Message in Message  %}
+          <p>{{Message}}</p>
+          {% endfor %}
+           <button type="submit" id="btn1table" class="btn-danger">Update</button>
+           
+      </div>
+    
+        
+</center>
+</div>
+<br>
+
+</form>
+
+{% endblock body  %}
