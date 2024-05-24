@@ -44,7 +44,8 @@
         <br><br>
         </table>
     </div><br>
-    <button type="submit" id="btn1table" value="Book a Table" class="btn-danger">Confirm</button>
+    <a href="{% url 'TableSuccess_View' table.id %}">Confirm</a>
+   {% comment %} <button type="submit" id="btn1table" value="Book a Table" class="btn-danger">Confirm</button> {% endcomment %}
    <br><br>
 
     </div>

@@ -7,8 +7,8 @@
 <div class="conatiner">
   <center><h2 id="menuconfirm">Order Confirmation</h2>
   </center>
-  {% comment %} <div class="card-body">
-    <table class="table table-bordered table-striped classtable">
+   <div class="card-body">
+    {% comment %} <table class="table table-bordered table-striped classtable">
       <thead class="menuhead">
         <tr>
           <th id="thitems">DESCRIPTION</th>
@@ -27,9 +27,10 @@
           <img src="{{ item.product.Image.url }}" alt="{{ item.product.Name }}" width="200" height="150">
       
           <p>{{ item.product.Name }}</p>
-          <p>Qty:   {{ item.quantity }}</p>
+          <p>Qty:<input class="increment-btn" type="number" id="qty" name="quantity" value={{ item.quantity }} style="width:40px";></p>
           <p>Price: ${{ item.product.Price }}</p>
-          <button><a href="{% url 'remove_from_cart' item.id %}">Remove</a></button>
+          {% comment %} <p>Price: ${{ price }}</p> {% endcomment %}
+          <a id="remove" href="{% url 'remove_from_cart' item.id %}">Remove</a>
         </div>
         {% empty %}
         <p>Your cart is empty.</p>
@@ -42,9 +43,9 @@
         <a class="buy-now-button-add" href="{% url 'menu_list' %}">Add Items</a><br>
       </center>
       </div> 
-    </tr>
+    {% comment %} </tr>
   </tbody>
  
-</table>
+</table> {% endcomment %}
 </form>
 {% endblock body %}

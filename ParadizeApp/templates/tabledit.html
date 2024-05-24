@@ -28,7 +28,6 @@
            
             <tr>
               <td><input type="text" class="form-control" name="Name"  value="{{ table.Name }}" required></td>
-
             <td><input type="tel" class="form-control" name="Phone_No"  value="{{ table.Phone_No }}" required></td>
             <td><input type="email" class="form-control" name="Email"    value="{{ table.Email }}" required></td>
             <td><input type="number" class="form-control" name="Person_nos"  value="{{ table.Person_nos }}" required></td>
@@ -41,9 +40,7 @@
           <br><br>
           </table>
           
-          {% for Message in Message  %}
-          <p>{{Message}}</p>
-          {% endfor %}
+        
            <button type="submit" id="btn1table" class="btn-danger">Update</button>
            
       </div>

@@ -1,0 +1,66 @@
+
+{% extends "masterfile.html" %}
+{% load static %}
+
+     <!-- === Table Section Start === -->
+
+{% block body %}
+  <form action="" method="POST" class="post-form">
+    {% csrf_token %}
+    <center>
+   
+    <div class="container booktablecont">
+       <center><h3 id="bookconfirm">Booking Done</h3>
+        <p style="color:rgb(11, 234, 11)";>Your Table booking has been confirmed!</p>
+        <div class="card-body">
+            <b><caption style="font-family: 'Times New Roman';"><u>Customer Details</u></caption></b>
+
+          <table class="table table-bordered tablesuccess">
+
+        <tbody>
+        <tr>
+            <th>Name :</th> 
+            <td>{{table.Name}}</td>
+        </tr>
+        <tr>
+            <th>Phone No :</th>
+            <td>{{table.Phone_No}}</td>
+        </tr>
+        <tr>
+            <th>Email  :</th>
+            <td>{{table.Email}}</td>
+        </tr>
+        <tr>
+            <th>Person_nos :</th>
+            <td>{{table.Person_nos}}</td>
+        </tr>
+        <tr>
+            <th>Date :</th>
+            <td>{{table.Date}}</td>
+        </tr>   
+        <tr>
+            <th>Time :</th>
+            <td>{{table.Time}}</td> 
+        </tr> 
+        <tr>
+            <th>Message :</th>
+            <td>{{table.Message}}</td>
+        </tr>         
+        </tbody>
+        <br><br>
+        </table>
+        <p style="color:blue">Thank you! visit again</p>
+
+    </div>
+    <a href="/homepage">back to home</a>
+   <br><br>
+    </div></center>
+    </form>
+
+   {% endblock body %} 
+
+    <!-- === Table Section End === -->
+
+
+
+  

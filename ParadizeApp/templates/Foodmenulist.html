@@ -19,7 +19,7 @@
             <p id="namep">{{ menu.Name }}</p>
             <p>{{ menu.Description }}</p>
             <p>Price: ${{ menu.Price }}</p>
-            <a href="#" class="buy-now-button">Order Now</a>
+            <a href="{% url 'Confirm_order_view' menu.id %}" class="buy-now-button">Order Now</a>
             <a class="buy-now-button" href="{% url 'add_to_cart' menu.id %}">Add to Cart</a>
     
           </li>

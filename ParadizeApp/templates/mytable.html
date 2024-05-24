@@ -16,6 +16,7 @@
     </div>
     <div class="col-lg-7 tablerow1">
       <h6 style="color: black;"><u>Please Sign Our Guest Book</u></h6>
+      {% comment %} {{form.as_p}} {% endcomment %}
       <div class="row">
         <div class="col-lg-4 col-sm-12">{{table.Name}}</div>
         <div class="col-lg-4 col-sm-12">{{table.Phone_No}}</div>
@@ -27,7 +28,7 @@
         <div class="col-lg-4 col-sm-12">{{table.Time}}</div>            
       </div>
       
-      {{table.Message}}<br><br>
+      {{table.Message}}<br><br> 
       <button type="submit" id="btn1table" value="Book a Table" class="btn-danger">Book a table</button>
 
     </div>

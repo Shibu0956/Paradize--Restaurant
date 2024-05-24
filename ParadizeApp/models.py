@@ -10,8 +10,7 @@ class userlogin(models.Model):
         db_table = "userlogin"
 
 class usersign(models.Model):
-    Fullname = models.CharField(max_length=100)
-    Email = models.CharField(max_length=100)
+    Phone_No = models.IntegerField(null=True)
     Username = models.CharField(max_length=100,unique =True)
     Password = models.CharField(max_length=100)
 
@@ -37,18 +36,18 @@ class Foodmenu(models.Model):
     Name = models.CharField(max_length=50)
     Description = models.CharField(max_length=50,null=True)
     Price = models.DecimalField(max_digits=5, decimal_places=2,null=True)
-    
+    # user = models.ForeignKey(User, on_delete=models.CASCADE,null=True)
     def __str__(self):
         return self.Name    
 
 class FoodCart(models.Model):
     product = models.ForeignKey(Foodmenu, on_delete=models.CASCADE)
-    quantity = models.PositiveIntegerField(default=0)
-    user = models.ForeignKey(User, on_delete=models.CASCADE)
+    quantity = models.IntegerField(default=1)
+    # user = models.ForeignKey(User, on_delete=models.CASCADE)
     # date_added = models.DateTimeField(auto_now_add=True)
 
     def __str__(self):
-        return f'{self.quantity} x {self.product.Name}'
+        return f"{self.quantity} x {self.product.Price}"
 
 class Review(models.Model):
     Image = models.ImageField()
@@ -86,8 +85,8 @@ class Booking_Table(models.Model):
     Phone_No =  models.IntegerField() 
     Email = models.CharField(max_length=50) 
     Person_nos = models.IntegerField() 
-    Date = models.DateField(blank=True, null=True)
-    Time = models.TimeField(blank=True, null=True)
+    Date = models.DateField(null=True)
+    Time = models.TimeField(null=True)
     Message = models.CharField(max_length=250,null=True)   
     class Meta :
         db_table = "BookingTable"

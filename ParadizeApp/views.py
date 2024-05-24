@@ -1,9 +1,11 @@
 from django.shortcuts import render,redirect
 from ParadizeApp.models import userlogin,usersign,Chefs,Foodmenu,FoodCart,Review,OrderMenu,Booking_Table,About,Offer,myCarousel
+from ParadizeApp.form import FoodCartForm,FootMenuForm
 from django.http import HttpResponse
 from ParadizeApp.form import userform,userform1,tableform
 from django.contrib import messages
 from django.contrib.auth.models import User
+from django.contrib.auth import login, authenticate
 
 # Create your views here.
 def demo_view(request):
@@ -37,27 +39,27 @@ def order(request):
 def sign(request):
       form = userform1(request.POST)
       if request.method == "POST":
-            Email = request.POST.get('Email')
+            Phone_No = request.POST.get('Phone_No')
             Username = request.POST.get('Username')
             Password = request.POST.get('Password')
             if  usersign.objects.filter(Username=Username).count()>0:
                   messages.info(request,"Username already exists.")    
 
-            elif usersign.objects.filter(Email=Email).count()>0:
-                 messages.info(request,"Email already exists.")
+            elif usersign.objects.filter(Phone_No=Phone_No).count()>0:
+                 messages.info(request,"Phone_No already exists.")
 
             else:  
                   # form.is_valid(): 
                   try:
                       form.save()
-                      return redirect('/userlogin')
+                      return redirect('/')
                   except:
                         pass
                   
       else:
             form = userform1()
             # return redirect('/usersign')
-      return render(request,'usersign.html')   
+      return render(request,'homepage.html')   
   
 def login(request):
       form = userform(request.POST)
@@ -66,13 +68,12 @@ def login(request):
          Password = request.POST.get('Password')
          check_user = usersign.objects.filter(Username=Username,Password=Password)
          if check_user:
-
             return redirect('/homepage')
                   
-      else: 
+         else: 
             form = userform()
             messages.info(request,"Enter valid username or password")
-      return render(request,'userlogin.html')          
+      return render(request,'homepage.html')          
 
 def logout(request):
 	  return redirect('login')
@@ -105,13 +106,17 @@ def bookingConfirm(request,formid):
 
 def tabledit(request,formid):
       table = Booking_Table.objects.get(id=formid)
-      print(table) 
-      # if request.method =="POST":
-      #         return redirect('tableupdate',formid=formid)
       context ={
             'table':table
       } 
-      
+      print(table) 
+      if request.method =="POST":
+            #   return redirect('tableupdate',formid=formid)
+            table1 = tableform(request.POST,instance=table)
+            if table1.is_valid():
+                  print("form updated")
+                  table1.save()
+                  return redirect("TableBooked_view",formid=formid)
       return render(request,'tabledit.html',context)
 
 def tableupdate(request,formid):
@@ -123,22 +128,9 @@ def tableupdate(request,formid):
       if table1.is_valid():
             print("form updated")
             table1.save()
-            return redirect("bookingConfirm",formid=formid)
+            return redirect("TableBooked_view",formid=formid)
       return render(request,'tabledit.html',context)
 
-      # print(table)   
-      # table1 = tableform(request.POST)
-      # print(table1)   
-      # # messages.info("table not valid")
-     
-      # if table1.is_valid():
-      #       print("form updated")
-      #       table1.save()
-      #       return redirect("TableBooked_view",formid=formid)
-      # else:
-      #       tableform()
-      #       print("form not updated")
-      # return render(request,"tabledit.html",{'table':table})
 
 def TableBooked_view(request,formid):
       table = Booking_Table.objects.get(id=formid)   
@@ -146,8 +138,12 @@ def TableBooked_view(request,formid):
             'table':table
       }
       return render(request,'TableBooked.html',context)
-
-
+def TableSuccess_View(request,formid):
+      table = Booking_Table.objects.get(id=formid)   
+      context={
+            'table':table
+      }
+      return render(request,'TableSuccess.html',context)
 # ===== table_view ======= #
             
 # ===== menu_view ======= #
@@ -159,32 +155,50 @@ def menu_list(request):
       return render(request,'Foodmenulist.html',context)
 
 def view_cart(request):
-      cart_items = FoodCart.objects.filter(user=request.user)
+      # cart_items = FoodCart.objects.filter(user=request.user)
+      cart_items = FoodCart.objects.all()
       total_price = sum(item.product.Price * item.quantity for item in cart_items)
+      price = (item.product.Price * item.quantity for item in cart_items)
+
       context ={
             'cart_items':cart_items,
-            'total_price':total_price
+            'total_price':total_price,
+            'price':price
+           
       }
       return render(request, 'FoodmenuCart.html',context)
 
+def Confirm_order_view(request,product_id):
+      cart_items = Foodmenu.objects.get(id=product_id)
+      cart_item, created = FoodCart.objects.get_or_create(product=cart_items)
+      cart_item.quantity += 1
+      print(cart_items)
+      context ={
+            'cart_items':cart_items,
+            'cart_item': cart_item
+      }
+      return render(request,'foodorder.html',context)
+
 def add_to_cart(request,product_id):
       product = Foodmenu.objects.get(id=product_id)
-      cart_item, created = FoodCart.objects.get_or_create(product=product,user=request.user)
+      # cart_item, created = FoodCart.objects.get_or_create(product=product,user=request.user)
+      cart_item, created = FoodCart.objects.get_or_create(product=product)
       cart_item.quantity += 1
       cart_item.save()
+      messages.success(request, "Item added to your cart.")
       return redirect('view_cart')
 
-def remove_from_cart(request, item_id):
+def remove_from_cart(request, item_id): 
 	cart_item = FoodCart.objects.get(id=item_id)
-	cart_item.delete()
+	cart_item.delete() 
 	return redirect('view_cart')
 
-def orderMenu(request,id):
-      menu = Foodmenu.objects.get(id=id)
-      context ={
-            'menu':menu,
-      }
-      return render(request,'menuOrder.html',context)
+# def orderMenu(request,id):
+#       menu = Foodmenu.objects.all()
+#       context ={
+#             'menu':menu,
+#       }
+#       return render(request,'foodorder.html',context)
 
 # ===== menu_view ======= #
 

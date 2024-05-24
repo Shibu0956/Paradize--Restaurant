@@ -1,0 +1,46 @@
+{% extends "masterfile.html" %}
+
+{% load static %}
+
+{% block body %}
+
+
+
+<!-- === Menu Section Start === -->
+<div class="container menucontainer" >
+  <center><h6 style="color: rgb(0, 0, 0);">Our Menu</h6>
+    <h2 style="font-family:cursive; color: rgb(253, 38, 81);">Taste with Our  <span style="font-family:cursive; color: rgb(252, 126, 8);">Paradize</span> </h2><br>
+    <center>
+
+      <div class="card-body">
+            
+          <div class="product-list">
+            {% comment %} {% for item in cart_items %} {% endcomment %}
+            <div class="product-item">
+              <img src={{ cart_items.Image.url }} alt="{{ cart_items.Name }}" width="200" height="150">
+          
+              <p>{{ cart_items.Name }}</p>
+              <p>Qty:<input class="increment-btn" type="number" id="qty" name="quantity" value={{ cart_item.quantity }} style="width:40px";></p>
+              <p>Price: ${{ cart_items.Price }}</p>
+              {% comment %} <p>Price: ${{ price }}</p> {% endcomment %}
+              <a id="remove" href="{% url 'remove_from_cart' cart_items.id %}">Remove</a>
+            </div>
+            {% comment %} {% empty %} {% endcomment %}
+            <p>Your cart is empty.</p>
+            {% comment %} {% endfor %} {% endcomment %}
+          
+            </div>
+          
+            <center><span>Total Price: ${{ total_price }}</span><br>
+          
+            <a class="buy-now-button-add" href="{% url 'menu_list' %}">Add Items</a><br>
+          </center>
+          </div> 
+</div>
+
+
+
+
+<!-- === Menu Section End === -->
+
+{% endblock body %}

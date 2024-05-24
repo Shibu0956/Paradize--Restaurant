@@ -42,6 +42,7 @@ urlpatterns = [
     path('tabledit/<int:formid>',views.tabledit,name="tabledit"),
     path('tableupdate/<int:formid>',views.tableupdate,name="tableupdate"),
     path('TableBooked/<int:formid>',views.TableBooked_view,name="TableBooked_view"),
+    path('TableSuccess/<int:formid>',views.TableSuccess_View,name="TableSuccess_View"),
 
 
     # --- table urls ---
@@ -51,7 +52,7 @@ urlpatterns = [
     path('foodcart/', views.view_cart, name='view_cart'),
     path('add/<int:product_id>/',views.add_to_cart,name='add_to_cart'),
     path('remove/<int:item_id>/',views.remove_from_cart,name='remove_from_cart'),
-    # path('ordermenu/<int:id>',views.orderMenu,name="orderMenu"),
+    path('Confirm_order/<int:product_id>/',views.Confirm_order_view,name="Confirm_order_view"),
 
     # --- table urls ---
 

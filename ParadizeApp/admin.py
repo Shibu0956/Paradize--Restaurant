@@ -3,7 +3,7 @@ from ParadizeApp.models import usersign,About,Chefs,Foodmenu,FoodCart,Review,Ord
 
 # Register your models here.
 class UsersignAdmin(admin.ModelAdmin):
-    list_display=("Fullname","Email","Username","Password",)
+    list_display=("Phone_No","Username","Password",)
 admin.site.register(usersign,UsersignAdmin)
 
 class AboutAdmin(admin.ModelAdmin):
